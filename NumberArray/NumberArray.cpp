@@ -31,3 +31,21 @@ NumberArray::~NumberArray()
 	delete[] data;
 	std::cout << "NumberArray destructor called. Memory released. \n";
 }
+
+void NumberArray::setNumber(int index, double value)
+{
+	if (index >= 0 && index < size)
+	{
+		data[index] = value;
+	}
+}
+double NumberArray::getNumber(int index) const
+{
+	static const double SAFE_DEFAULT = 0.0;
+
+	if (index >= 0 && index < size)
+	{
+		return data[index];
+	}
+	return SAFE_DEFAULT;
+}
